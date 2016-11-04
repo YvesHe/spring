@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 如果有多个javaBean里面都要调用初始化方法 或 destroy方法时候,如果javaBean中定义的初始方法名或destroy方法名都相同的情况下可以统设置在Beans中:default-init-method=方法名或 
+	default-destroy-method=方法名 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+
+	default-init-method="init" default-destroy-method="destroy">
+
+	<bean id="userBean" class="cn.com.yves.spring.beanpostprocessor.UserBean"
+		scope="singleton" destroy-method="destroy" init-method="init">
+
+		<!-- 可以通过属性的setter方法为属性初始化数据 ,也就是所说对象一产生,该属性就被赋予了值 -->
+		<!-- 相当于在那个类中 定义了属性: private String message ="Hello World!" -->
+		<property name="message" value="message info" />
+	</bean>
+
+	<!-- 配置用于bean的后置处理的类! -->
+	<bean class="cn.com.yves.spring.beanpostprocessor.UserBeanForPostProcess" />
+
+</beans>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="helloWorld" class="cn.com.yves.spring.hello.HelloWorldBean">
+
+		<!-- 可以通过属性的setter方法为属性初始化数据 ,也就是所说对象一产生,该属性就被赋予了值 -->
+		<!-- 相当于在那个类中 定义了属性: private String message ="Hello World!" -->
+		<property name="message" value="Hello World!" />
+
+	</bean>
+
+</beans>
